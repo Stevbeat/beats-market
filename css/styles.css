@@ -196,6 +196,27 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
 .manifesto-card > p { margin: 0 0 18px; color: var(--muted); font-size: 10px; line-height: 1.8; }
 .manifesto-detail { display: flex; width: 100%; justify-content: space-between; margin-top: auto; padding-top: 13px; border-top: 1px solid var(--line); color: #bab3b3; font-size: 8px; letter-spacing: 1.2px; }
 .manifesto-detail span { color: var(--accent-bright); font-size: 13px; }
+.services-section { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: linear-gradient(180deg,rgba(255,255,255,.017),transparent 90%); }
+.services-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; }
+.service-card { display: flex; min-height: 310px; flex-direction: column; align-items: flex-start; padding: 23px; border: 1px solid var(--line); border-radius: 7px; background: rgba(255,255,255,.018); transition: transform .24s,border-color .24s,background .24s; }
+.service-card:hover { transform: translateY(-5px); border-color: rgba(255,98,104,.35); background: rgba(243,76,83,.04); }
+.service-card-featured { background: linear-gradient(145deg,rgba(243,76,83,.13),rgba(255,255,255,.018) 65%); }
+.service-index { color: #a69e9f; font-size: 8px; letter-spacing: 1.4px; }
+.service-symbol { display: flex; height: 65px; align-items: center; margin: 15px 0 11px; color: var(--accent-bright); font-size: 38px; }
+.service-symbol-mix { gap: 5px; }
+.service-symbol-mix i { width: 3px; border-radius: 3px; background: var(--accent-bright); }
+.service-symbol-mix i:nth-child(1),.service-symbol-mix i:nth-child(5) { height: 19px; }
+.service-symbol-mix i:nth-child(2),.service-symbol-mix i:nth-child(4) { height: 37px; }
+.service-symbol-mix i:nth-child(3) { height: 54px; }
+.service-symbol-strings { font-size: 54px; font-weight: 300; }
+.service-card h3 { margin: 0 0 10px; font-size: 17px; font-weight: 600; }
+.service-card > p { margin: 0 0 22px; color: var(--muted); font-size: 10px; line-height: 1.8; }
+.service-link { display: flex; width: 100%; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 13px; border-top: 1px solid var(--line); color: #e7e1e1; font-size: 10px; font-weight: 600; transition: color .2s; }
+.service-link:hover,.service-link:focus-visible { color: var(--accent-bright); }
+.service-link span { color: var(--accent-bright); font-size: 13px; }
+.services-note { margin: 22px 0 0; color: var(--muted); font-size: 10px; text-align: center; }
+.services-note a { margin-left: 4px; color: #f0e9e9; }
+.services-note a span { padding-left: 3px; color: var(--accent-bright); }
 .listening-section { padding-top: 19px; padding-bottom: 77px; }
 .listening-card { position: relative; display: flex; min-height: 320px; align-items: center; justify-content: space-between; overflow: hidden; padding: 44px 7%; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(115deg,#19191c 15%,#24191b 70%,#32191c); }
 .listening-copy { position: relative; z-index: 2; max-width: 510px; }
@@ -328,6 +349,7 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
   .store-hero-art { min-height: 330px; }
   .store-cover { width: min(260px,77%); }
   .manifesto-card { min-height: 302px; padding: 17px; }
+  .service-card { min-height: 330px; padding: 19px; }
   .license-note { grid-template-columns: 70px 1fr; gap: 20px; }
   .license-note-mark { width: 65px; height: 65px; }
   .license-note-mark i { height: 80px; }
@@ -419,6 +441,9 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
   .manifesto-grid { grid-template-columns: 1fr; gap: 11px; }
   .manifesto-card { min-height: 254px; padding: 20px; }
   .manifesto-symbol { margin-block: 12px 6px; }
+  .services-grid { grid-template-columns: 1fr; gap: 11px; }
+  .service-card { min-height: 0; padding: 20px; }
+  .service-symbol { height: 54px; margin-block: 12px 6px; }
   .listening-section { padding-top: 5px; padding-bottom: 49px; }
   .listening-card { min-height: 349px; align-items: flex-start; padding: 28px 21px; }
   .listening-copy { max-width: 90%; }
