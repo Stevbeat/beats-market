@@ -108,9 +108,13 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
 .track-number, .beat-tag { position: absolute; z-index: 2; color: rgba(255,255,255,.78); font-size: 9px; font-weight: 600; letter-spacing: 1px; }
 .track-number { top: 12px; left: 13px; }
 .beat-tag { right: 11px; bottom: 12px; padding: 5px 8px; border: 1px solid rgba(255,255,255,.22); border-radius: 20px; background: rgba(17,17,19,.4); font-size: 8px; letter-spacing: .5px; backdrop-filter: blur(6px); }
-.card-play { position: absolute; z-index: 2; top: 50%; left: 50%; display: grid; width: 47px; height: 47px; place-items: center; border: 0; border-radius: 50%; background: var(--accent); box-shadow: 0 4px 24px rgba(0,0,0,.25); cursor: pointer; opacity: 0; transform: translate(-50%,-40%) scale(.9); transition: opacity .2s, transform .2s, background .2s; }
-.beat-card:hover .card-play, .beat-card:focus-within .card-play, .beat-card.is-playing .card-play { opacity: 1; transform: translate(-50%,-50%) scale(1); }
-.card-play:hover { background: var(--accent-bright); }
+.card-play { position: absolute; z-index: 2; inset: 0; display: grid; width: 100%; height: 100%; place-items: center; padding: 0; border: 0; border-radius: inherit; background: transparent; cursor: pointer; }
+.card-play::before { position: absolute; top: 50%; left: 50%; width: 47px; height: 47px; border-radius: 50%; background: var(--accent); box-shadow: 0 4px 24px rgba(0,0,0,.25); content: ""; transform: translate(-50%,-50%); transition: background .2s,transform .2s; }
+.card-play:hover::before { background: var(--accent-bright); transform: translate(-50%,-50%) scale(1.06); }
+.card-play:focus-visible { outline: 3px solid #fff; outline-offset: -4px; }
+.track-number, .beat-tag { pointer-events: none; }
+.card-play .play-icon { position: relative; z-index: 1; margin-left: 3px; }
+.is-playing .card-play .play-icon { margin-left: 0; }
 .play-icon { display: block; width: 0; height: 0; margin-left: 3px; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 9px solid currentColor; }
 .is-playing .play-icon, .player-play.is-playing .play-icon { width: 9px; height: 12px; margin: 0; border: 0; border-right: 3px solid currentColor; border-left: 3px solid currentColor; }
 .favorite-button { position: absolute; z-index: 2; top: 8px; right: 8px; display: grid; width: 31px; height: 31px; place-items: center; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; background: rgba(17,17,19,.45); color: white; cursor: pointer; backdrop-filter: blur(7px); transition: color .2s, background .2s; }
@@ -320,6 +324,9 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
 .license-link { display: flex; align-items: center; justify-content: space-between; padding: 10px 3px 0; border-top: 1px solid var(--line); color: #ddd5d5; font-size: 9px; transition: color .2s; }
 .license-link span { color: var(--accent-bright); font-size: 14px; }
 .license-link:hover { color: var(--accent-bright); }
+.beat-store-links { display: flex; gap: 7px; padding-top: 8px; border-top: 1px solid var(--line); }
+.beat-store-links a { flex: 1; padding: 7px 4px; border: 1px solid var(--line); border-radius: 4px; color: #ddd5d5; font-size: 8px; text-align: center; transition: background .2s,border-color .2s,color .2s; }
+.beat-store-links a:hover, .beat-store-links a:focus-visible { border-color: rgba(255,98,104,.45); background: rgba(243,76,83,.08); color: var(--text); }
 .license-note { display: grid; grid-template-columns: 95px 1fr auto; align-items: center; gap: 26px; min-height: 211px; margin-block: 64px 75px; padding: 25px 38px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(105deg,rgba(243,76,83,.07),rgba(255,255,255,.015)); }
 .license-note-mark { position: relative; display: grid; width: 79px; height: 79px; place-items: center; border: 1px solid rgba(255,98,104,.3); border-radius: 50%; color: var(--accent-bright); }
 .license-note-mark span { font-size: 18px; font-weight: 700; letter-spacing: -1px; }
@@ -552,6 +559,7 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
   .store-card .beat-info h3 { font-size: 12px; }
   .store-card .beat-info p,.store-card .track-length { font-size: 8px; }
   .store-card .license-link { font-size: 8px; }
+  .store-card .beat-store-links a { font-size: 7px; }
   .license-note { grid-template-columns: 1fr; gap: 16px; margin-block: 39px 48px; padding: 22px; }
   .license-note-mark { display: none; }
   .license-note h2 { font-size: 29px; }
@@ -594,7 +602,6 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
   .filter-button { min-height: 34px; padding-inline: 11px; }
   .beat-grid { gap: 19px 12px; }
   .beat-art { aspect-ratio: .94; }
-  .card-play { width: 42px; height: 42px; opacity: 1; transform: translate(-50%,-50%) scale(.92); }
   .beat-info { align-items: flex-start; padding-top: 10px; }
   .beat-info h3 { font-size: 12px; }
   .beat-info p, .track-length { font-size: 8px; }
