@@ -103,13 +103,14 @@
     </script>
     <link rel="icon" href="images/stevbeatz-cover.jpg" type="image/jpeg">
     <link rel="preload" href="images/stevbeatz-cover.jpg" as="image">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=2">
     <script src="js/app.js?v=2" defer></script>
     <script src="js/player.js?v=2" defer></script>
     <script src="js/listening-slideshow.js?v=1" defer></script>
     <script src="js/beats.js?v=2" defer></script>
     <script src="js/contact.js?v=2" defer></script>
     <script src="js/navigation.js?v=2" defer></script>
+    <script src="js/whatsapp-chat.js?v=2" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -238,8 +239,62 @@
           </div>
         </div>
       </section>
+      <section class="platform-previews section-pad" id="platform-previews">
+        <div class="page-width">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Listen and watch</p>
+              <h2>Find StevBeatz <span>on your platform.</span></h2>
+            </div>
+            <p class="section-intro">Play a release on Spotify or Audiomack, or explore videos from the YouTube channel.</p>
+          </div>
+          <div class="platform-preview-grid">
+            <article class="platform-preview">
+              <h3>Spotify</h3>
+              <iframe
+                src="https://open.spotify.com/embed/track/2U8C4IwPNpL5AlMFbhLFJS?theme=0"
+                title="Friday Night (Amapiano Version) by StevBeatz on Spotify"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              <a href="https://open.spotify.com/track/2U8C4IwPNpL5AlMFbhLFJS" target="_blank" rel="noopener noreferrer">Open on Spotify <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="platform-preview">
+              <h3>Audiomack</h3>
+              <iframe
+                src="https://audiomack.com/embed/stevbeatz/song/friday-night-amapiano-version-1"
+                title="Friday Night (Amapiano Version) by StevBeatz on Audiomack"
+                loading="lazy"
+                allow="autoplay; encrypted-media"
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              <a href="https://audiomack.com/stevbeatz/song/friday-night-amapiano-version-1" target="_blank" rel="noopener noreferrer">Open on Audiomack <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="platform-preview platform-preview-video">
+              <h3>YouTube</h3>
+              <a class="youtube-preview" href="https://www.youtube.com/watch?v=V5Kf3bspM1c" target="_blank" rel="noopener noreferrer" aria-label="Watch Purchase Beat x Dancehall Type Beat x Alpha by Stevbeatz on YouTube">
+                <img src="https://i.ytimg.com/vi/V5Kf3bspM1c/hqdefault.jpg" alt="Video thumbnail for Purchase Beat x Dancehall Type Beat x Alpha" loading="lazy" width="480" height="360">
+                <span class="youtube-preview-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 10 6-10 6z"></path></svg></span>
+              </a>
+              <p class="youtube-preview-note">Select the preview to play on YouTube.</p>
+              <a href="https://www.youtube.com/watch?v=V5Kf3bspM1c" target="_blank" rel="noopener noreferrer">Watch on YouTube <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="site-footer page-width"><a class="brand footer-brand" href="index.html#home"><img src="images/stevbeatz-cover.jpg" alt="" loading="lazy" width="44" height="44"><span>stev<span class="brand-accent">beatz</span></span></a><p>Made for the music you haven't made yet.</p><a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a><span class="copyright">© <span id="current-year"></span> StevBeatz</span></footer>
+    <section class="wa-popup" id="wa-popup" role="dialog" aria-labelledby="wa-popup-title" hidden>
+      <header class="wa-popup-header"><div><p class="eyebrow">StevBeatz on WhatsApp</p><h2 id="wa-popup-title">Let’s talk music.</h2></div><button class="wa-popup-close" type="button" aria-label="Close WhatsApp chat options">×</button></header>
+      <div class="wa-business-status"><span class="wa-status-dot"></span><span id="wa-status-text">Checking business hours...</span></div>
+      <p class="wa-hours-note">Daily, 8:00 AM–6:00 PM Ghana time. This is the usual reply schedule, not live availability.</p>
+      <div class="wa-quick-messages" aria-label="Choose what you’d like to discuss">
+        <button class="wa-quick-message" type="button" data-message-type="beat_inquiry" data-message="I'd like to ask about one of your beats.">Ask about a beat <span aria-hidden="true">↗</span></button>
+        <button class="wa-quick-message" type="button" data-message-type="custom_production" data-message="I'm interested in custom music production.">Custom production <span aria-hidden="true">↗</span></button>
+        <button class="wa-quick-message" type="button" data-message-type="mixing_mastering" data-message="I'd like to ask about mixing and mastering.">Mixing &amp; mastering <span aria-hidden="true">↗</span></button>
+        <button class="wa-quick-message" type="button" data-message-type="general_inquiry" data-message="I have a question about your music services.">Something else <span aria-hidden="true">↗</span></button>
+      </div>
+    </section>
+    <a id="whatsapp-chat" class="whatsapp-chat" href="https://wa.me/233501483350?text=Hi%20StevBeatz!%20I%27m%20interested%20in%20your%20beats%20or%20music%20production%20services.%20Could%20you%20tell%20me%20more%3F" target="_blank" rel="noopener noreferrer" aria-label="Chat with StevBeatz on WhatsApp" aria-controls="wa-popup" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M16.02 3a12.9 12.9 0 0 0-11.1 19.47L3.2 29l6.7-1.76A12.9 12.9 0 1 0 16.02 3Zm0 23.4a10.48 10.48 0 0 1-5.34-1.46l-.38-.22-3.98 1.05 1.06-3.88-.25-.4A10.5 10.5 0 1 1 16.02 26.4Zm5.76-7.87c-.32-.16-1.87-.92-2.16-1.02-.29-.11-.5-.16-.71.16-.21.32-.81 1.02-.99 1.23-.18.21-.37.24-.69.08-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.58-1.87-1.77-2.19-.18-.32-.02-.49.14-.65.15-.15.32-.37.48-.55.16-.18.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.72-.97-2.35-.25-.61-.52-.53-.71-.54h-.61c-.21 0-.55.08-.84.4-.29.32-1.1 1.08-1.1 2.64s1.13 3.06 1.29 3.27c.16.21 2.23 3.4 5.39 4.76.75.32 1.33.52 1.79.67.75.24 1.43.21 1.97.13.6-.09 1.87-.76 2.13-1.5.26-.73.26-1.36.18-1.5-.08-.13-.29-.21-.61-.37Z"/></svg><span>Chat with us</span></a>
     <div class="audio-player" id="audio-player" aria-label="Audio player">
       <audio id="audio-element" preload="none"></audio><div class="player-track"><button class="player-cover-button" id="open-full-player" type="button" aria-label="View full beat and artwork" disabled><img id="player-cover" src="images/stevbeatz-cover.jpg" alt="" width="48" height="48"><span aria-hidden="true">↗</span></button><div class="player-track-copy"><strong id="player-title">Choose a beat</strong><span>StevBeatz</span></div></div>
       <div class="player-controls"><button class="player-skip" id="previous-track" type="button" aria-label="Previous beat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M19 6l-9 6 9 6z"></path></svg></button><button class="player-play" id="player-play" type="button" aria-label="Play" disabled><span class="play-icon" aria-hidden="true"></span></button><button class="player-skip" id="next-track" type="button" aria-label="Next beat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M5 6l9 6-9 6z"></path></svg></button></div>
