@@ -321,6 +321,14 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
 .store-card .beat-info { padding: 13px 3px 11px; }
 .store-card .beat-info h3 { font-size: 15px; }
 .store-card .beat-info p { font-size: 9px; }
+.beat-guide-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
+.beat-guide-item { padding: 20px; border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,.018); }
+.beat-guide-item h3 { margin: 0 0 12px; color: #f1ebea; font-size: 15px; line-height: 1.5; }
+.beat-guide-item p, .beat-guide-note { color: var(--muted); font-size: 11px; line-height: 1.8; }
+.beat-guide-item p { margin: 0 0 16px; }
+.beat-guide-item a, .beat-guide-note a { color: #fff; text-decoration: underline; text-decoration-color: var(--accent-bright); text-underline-offset: 3px; }
+.beat-guide-item a span { color: var(--accent-bright); }
+.beat-guide-note { margin: 18px 0 0; text-align: center; }
 .license-link { display: flex; align-items: center; justify-content: space-between; padding: 10px 3px 0; border-top: 1px solid var(--line); color: #ddd5d5; font-size: 9px; transition: color .2s; }
 .license-link span { color: var(--accent-bright); font-size: 14px; }
 .license-link:hover { color: var(--accent-bright); }
@@ -489,6 +497,7 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
   .orbit-two { width: min(440px,100%); }
   .art-sticker { right: -2px; }
   .beat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 18px; }
+  .beat-guide-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .beat-art { aspect-ratio: 1.35; }
   .services-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .faq-list { grid-template-columns: 1fr; }
@@ -601,6 +610,7 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
   .filter-tabs { width: 100%; }
   .filter-button { min-height: 34px; padding-inline: 11px; }
   .beat-grid { gap: 19px 12px; }
+  .beat-guide-grid { grid-template-columns: 1fr; }
   .beat-art { aspect-ratio: .94; }
   .beat-info { align-items: flex-start; padding-top: 10px; }
   .beat-info h3 { font-size: 12px; }
