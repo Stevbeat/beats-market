@@ -4,31 +4,50 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#111113">
-    <meta name="description" content="Learn about StevBeatz's creative approach to original beats and music made to leave room for your story, your ideas, and your next release.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="description" content="Meet StevBeatz, an independent music producer creating original beats and helping artists shape their sound from the first idea to the final mix.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="StevBeatz">
-    <meta property="og:title" content="About StevBeatz | Original Beats & Creative Vision">
-    <meta property="og:description" content="Learn about StevBeatz's creative approach to original beats and music made to leave room for your story, your ideas, and your next release.">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="About StevBeatz | Original Beats & Creative Vision">
-    <meta name="twitter:description" content="Learn about StevBeatz's creative approach to original beats and music made to leave room for your story, your ideas, and your next release.">
-    <title>About StevBeatz | Original Beats &amp; Creative Vision</title>
+    <meta property="og:title" content="About StevBeatz | Music Producer &amp; Original Beats">
+    <meta property="og:description" content="Meet StevBeatz, an independent music producer creating original beats and helping artists shape their sound from the first idea to the final mix.">
+    <meta property="og:url" content="https://stevbeatz.com.gh/about.html">
+    <meta property="og:image" content="https://stevbeatz.com.gh/images/stevbeatz-cover.jpg">
+    <meta property="og:image:alt" content="StevBeatz artwork">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About StevBeatz | Music Producer &amp; Original Beats">
+    <meta name="twitter:description" content="Meet StevBeatz, an independent music producer creating original beats and helping artists shape their sound from the first idea to the final mix.">
+    <meta name="twitter:image" content="https://stevbeatz.com.gh/images/stevbeatz-cover.jpg">
+    <meta name="twitter:image:alt" content="StevBeatz artwork">
+    <link rel="canonical" href="https://stevbeatz.com.gh/about.html">
+    <title>About StevBeatz | Music Producer &amp; Original Beats</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About StevBeatz",
+        "url": "https://stevbeatz.com.gh/about.html",
+        "isPartOf": { "@id": "https://stevbeatz.com.gh/#website" },
+        "about": { "@id": "https://stevbeatz.com.gh/#organization" }
+      }
+    </script>
     <link rel="icon" href="images/stevbeatz-cover.jpg" type="image/jpeg">
     <link rel="preload" href="images/stevbeatz-cover.jpg" as="image">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/app.js?v=2" defer></script>
     <script src="js/player.js?v=2" defer></script>
+    <script src="js/listening-slideshow.js?v=1" defer></script>
     <script src="js/beats.js?v=2" defer></script>
     <script src="js/contact.js?v=2" defer></script>
     <script src="js/navigation.js?v=2" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header" id="top">
       <a class="brand" href="index.html#home" aria-label="StevBeatz home"><img src="images/stevbeatz-cover.jpg" alt="" width="44" height="44"><span>stev<span class="brand-accent">beatz</span></span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button>
       <nav class="primary-nav" id="primary-nav" aria-label="Main navigation"><a href="beats.html">Beats</a><a href="index.html#services">Services</a><a href="about.html" aria-current="page">About</a><a href="contact-us.html">Contact</a><a class="nav-cta" href="beats.html">Explore beats <span aria-hidden="true">↗</span></a></nav>
     </header>
-    <main>
+    <main id="main-content">
       <section class="inner-hero page-width about-hero">
         <div class="inner-hero-copy">
           <p class="eyebrow"><span class="live-dot"></span> A sound with space for your story</p>
@@ -53,7 +72,50 @@
         </div>
       </section>
       <section class="listening-section page-width">
-        <div class="listening-card"><div class="listening-copy"><p class="eyebrow">Your story. Your sound.</p><h2>Come for a listen.<br><span>Leave with an idea.</span></h2><p>Browse original previews, save the ones you love, and find the one that sounds like a start.</p><a class="button button-primary" href="beats.html">Explore the beat store <span aria-hidden="true">↗</span></a></div><div class="listening-art" aria-hidden="true"><img src="images/stevbeatz-cover.jpg" alt="" loading="lazy" width="700" height="700"><span class="listening-orbit orbit-a"></span><span class="listening-orbit orbit-b"></span><span class="listening-play"><span class="play-icon"></span></span></div></div>
+        <div class="listening-card">
+          <div class="listening-copy">
+            <p class="eyebrow">Your story. Your sound.</p>
+            <h2>Come for a listen.<br><span>Leave with an idea.</span></h2>
+            <p>Take a spin through a few original previews. Press play to hear one, then find your next favorite.</p>
+            <a class="button button-primary" href="beats.html">Explore the beat store <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="listening-art">
+            <span class="listening-orbit orbit-a" aria-hidden="true"></span>
+            <span class="listening-orbit orbit-b" aria-hidden="true"></span>
+            <div class="listening-slides" aria-label="Featured beat previews">
+              <article class="listening-slide beat-card" data-title="Run to me" data-src="audio/Run%20to%20me.mp3" aria-roledescription="slide" aria-label="1 of 3">
+                <div class="listening-slide-art beat-art">
+                  <img src="images/sunset-cover.jpg" alt="Friends enjoying an evening at the beach" loading="lazy" width="800" height="1200">
+                  <button class="card-play listening-play" type="button" aria-label="Play Run to me"><span class="play-icon" aria-hidden="true"></span></button>
+                </div>
+                <div class="listening-slide-info"><span class="eyebrow">FEATURED PREVIEW</span><h3>Run to me</h3><span class="track-length">--:--</span></div>
+              </article>
+              <article class="listening-slide beat-card" data-title="Move it" data-src="audio/Move%20it.mp3" aria-roledescription="slide" aria-label="2 of 3" hidden>
+                <div class="listening-slide-art beat-art art-blue art-photo art-move">
+                  <img src="images/city-cover.jpg" alt="City lights after dark" loading="lazy" width="1200" height="1200">
+                  <button class="card-play listening-play" type="button" aria-label="Play Move it"><span class="play-icon" aria-hidden="true"></span></button>
+                </div>
+                <div class="listening-slide-info"><span class="eyebrow">FEATURED PREVIEW</span><h3>Move it</h3><span class="track-length">--:--</span></div>
+              </article>
+              <article class="listening-slide beat-card" data-title="Blue" data-src="audio/Blue.mp3" aria-roledescription="slide" aria-label="3 of 3" hidden>
+                <div class="listening-slide-art beat-art art-photo">
+                  <img src="images/boat-cover.jpg" alt="A boat resting on a quiet lake" loading="lazy" width="800" height="1200">
+                  <button class="card-play listening-play" type="button" aria-label="Play Blue"><span class="play-icon" aria-hidden="true"></span></button>
+                </div>
+                <div class="listening-slide-info"><span class="eyebrow">FEATURED PREVIEW</span><h3>Blue</h3><span class="track-length">--:--</span></div>
+              </article>
+            </div>
+            <div class="listening-controls" role="group" aria-label="Beat slideshow controls">
+              <button class="listening-step" type="button" data-slide-step="-1" aria-label="Previous beat">←</button>
+              <div class="listening-pagination" role="group" aria-label="Choose a beat">
+                <button class="listening-dot is-active" type="button" data-slide-to="0" aria-label="Show beat 1" aria-pressed="true"></button>
+                <button class="listening-dot" type="button" data-slide-to="1" aria-label="Show beat 2" aria-pressed="false"></button>
+                <button class="listening-dot" type="button" data-slide-to="2" aria-label="Show beat 3" aria-pressed="false"></button>
+              </div>
+              <button class="listening-step" type="button" data-slide-step="1" aria-label="Next beat">→</button>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <footer class="site-footer page-width"><a class="brand footer-brand" href="index.html#home"><img src="images/stevbeatz-cover.jpg" alt="" loading="lazy" width="44" height="44"><span>stev<span class="brand-accent">beatz</span></span></a><p>Made for the music you haven't made yet.</p><a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a><span class="copyright">© <span id="current-year"></span> StevBeatz</span></footer>
