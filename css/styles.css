@@ -428,7 +428,7 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
   .inquiry-form { padding: 20px; }
 }
 
-.audio-player { position: fixed; z-index: 30; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: minmax(160px, 1fr) 150px minmax(200px, 1.2fr); align-items: center; gap: 24px; min-height: 78px; padding: 10px max(32px, calc((100% - var(--page-width)) / 2)); border-top: 1px solid rgba(255,255,255,.12); background: rgba(22,22,24,.97); box-shadow: 0 -7px 30px rgba(0,0,0,.18); backdrop-filter: blur(18px); }
+.audio-player { position: fixed; z-index: 30; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: minmax(140px, 1fr) minmax(225px, auto) minmax(180px, 1.2fr); align-items: center; gap: 20px; min-height: 78px; padding: 10px max(32px, calc((100% - var(--page-width)) / 2)); border-top: 1px solid rgba(255,255,255,.12); background: rgba(22,22,24,.97); box-shadow: 0 -7px 30px rgba(0,0,0,.18); backdrop-filter: blur(18px); }
 .player-track { display: flex; min-width: 0; align-items: center; gap: 12px; }
 .player-cover-button { position: relative; display: block; width: 43px; height: 43px; flex: 0 0 auto; overflow: hidden; padding: 0; border: 0; border-radius: 4px; background: none; cursor: zoom-in; }
 .player-cover-button img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -439,6 +439,20 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
 .player-track-copy span { color: var(--muted); font-size: 9px; }
 .player-controls { display: flex; align-items: center; justify-content: center; gap: 17px; }
 .player-controls button { display: grid; flex: 0 0 auto; place-items: center; border: 0; background: none; cursor: pointer; }
+.volume-control { display: flex; align-items: center; gap: 6px; }
+.volume-toggle { width: 23px; height: 23px; padding: 2px; color: #c6c2c2; }
+.volume-toggle:hover { color: var(--accent-bright); }
+.volume-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+.volume-muted-mark { display: none; }
+.volume-toggle.is-muted .volume-wave { display: none; }
+.volume-toggle.is-muted .volume-muted-mark { display: block; }
+.volume-control input { width: 68px; height: 3px; margin: 0; border-radius: 3px; outline: none; background: linear-gradient(to right, var(--accent) 0%, var(--accent) var(--volume-level, 100%), #4a4749 var(--volume-level, 100%), #4a4749 100%); appearance: none; cursor: pointer; }
+.volume-control input::-webkit-slider-thumb { width: 9px; height: 9px; border: 0; border-radius: 50%; background: var(--accent-bright); appearance: none; }
+.volume-control input::-moz-range-thumb { width: 9px; height: 9px; border: 0; border-radius: 50%; background: var(--accent-bright); }
+.player-mode-button { width: 23px; height: 23px; padding: 3px; color: #aaa5a6; transition: color .2s,background .2s; }
+.player-mode-button svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
+.player-mode-button:hover, .player-mode-button.is-active { color: var(--accent-bright); }
+.player-mode-button.is-active { border-radius: 50%; background: rgba(243,76,83,.12); }
 .player-skip { width: 23px; height: 23px; color: #c6c2c2; }
 .player-skip:hover { color: var(--accent-bright); }
 .player-skip svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
@@ -466,10 +480,12 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
 .expanded-progress input:disabled { cursor: default; opacity: .5; }
 .expanded-progress input::-webkit-slider-thumb { width: 11px; height: 11px; border: 0; border-radius: 50%; background: var(--accent-bright); appearance: none; }
 .expanded-progress input::-moz-range-thumb { width: 11px; height: 11px; border: 0; border-radius: 50%; background: var(--accent-bright); }
-.expanded-controls { justify-content: flex-start; gap: 22px; margin-top: 23px; }
+.expanded-controls { justify-content: flex-start; gap: 17px; margin-top: 23px; }
 .expanded-controls .player-skip { width: 32px; height: 32px; }
 .expanded-controls .player-skip svg { width: 20px; height: 20px; }
 .expanded-controls .player-play { width: 48px; height: 48px; }
+.expanded-controls .volume-control { margin-left: 4px; }
+.expanded-controls .volume-control input { width: 92px; }
 :focus-visible { outline: 2px solid #ff7b80; outline-offset: 3px; }
 .whatsapp-chat { position: fixed; z-index: 40; right: 24px; bottom: 96px; display: inline-flex; min-height: 54px; align-items: center; justify-content: center; gap: 9px; padding: 12px 18px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: #25d366; box-shadow: 0 5px 20px rgba(0,0,0,.32); color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; transition: background-color .2s; }
 .whatsapp-chat:hover { background: #1ebe5d; }
@@ -637,7 +653,11 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
   .player-cover-button { width: 37px; height: 37px; }
   .player-track-copy strong { max-width: 170px; font-size: 9px; }
   .player-track-copy span { font-size: 8px; }
-  .player-controls { gap: 11px; }
+  .player-controls { gap: 6px; }
+  .volume-control { gap: 4px; }
+  .volume-control input { width: 42px; }
+  .player-mode-button { width: 20px; height: 22px; padding: 2px; }
+  .player-mode-button svg { width: 16px; height: 16px; }
   .player-play { width: 34px; height: 34px; }
   .player-progress { grid-column: 1 / -1; gap: 8px; }
   .now-playing { width: calc(100vw - 24px); max-height: calc(100dvh - 24px); border-radius: 12px; }
@@ -651,6 +671,10 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
 }
 
 @media (max-width: 480px) {
+  .audio-player { grid-template-columns: minmax(0,1fr); gap: 7px; min-height: 128px; }
+  .player-track { grid-column: 1; }
+  .audio-player > .player-controls { grid-column: 1; justify-content: space-between; }
+  .audio-player > .player-progress { grid-column: 1; }
   .whatsapp-chat { width: 54px; min-height: 54px; padding: 13px; }
   .whatsapp-chat span { display: none; }
 }

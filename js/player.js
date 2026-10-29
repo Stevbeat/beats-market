@@ -9,6 +9,20 @@ if (audio) {
   const playerStatus = document.querySelector("#player-status");
   const seekBar = document.querySelector("#seek-bar");
   const expandedSeekBar = document.querySelector("#expanded-seek-bar");
+  const volumeRange = document.querySelector("#volume-range");
+  const expandedVolumeRange = document.querySelector("#expanded-volume-range");
+  const volumeToggles = [
+    document.querySelector("#volume-toggle"),
+    document.querySelector("#expanded-volume-toggle"),
+  ];
+  const repeatButtons = [
+    document.querySelector("#repeat-track"),
+    document.querySelector("#expanded-repeat-track"),
+  ];
+  const shuffleButtons = [
+    document.querySelector("#shuffle-tracks"),
+    document.querySelector("#expanded-shuffle-tracks"),
+  ];
   const currentTimeLabel = document.querySelector("#current-time");
   const durationLabel = document.querySelector("#duration-time");
   const expandedCurrentTimeLabel = document.querySelector("#expanded-current-time");
@@ -21,6 +35,74 @@ if (audio) {
   let currentTrackIndex = -1;
   let currentTrack = null;
   let playbackRequestId = 0;
+  let lastVolume = audio.volume || 1;
+  let repeatTrack = false;
+  let shuffleEnabled = false;
+  let shuffleOrder = [];
+  let shufflePosition = -1;
+
+  function updatePlaybackModes() {
+    repeatButtons.forEach((button) => {
+      button.classList.toggle("is-active", repeatTrack);
+      button.setAttribute("aria-pressed", String(repeatTrack));
+      button.setAttribute("aria-label", repeatTrack ? "Turn off repeat track" : "Repeat current track");
+      button.title = repeatTrack ? "Repeat track: on" : "Repeat track: off";
+    });
+    shuffleButtons.forEach((button) => {
+      button.classList.toggle("is-active", shuffleEnabled);
+      button.setAttribute("aria-pressed", String(shuffleEnabled));
+      button.setAttribute("aria-label", shuffleEnabled ? "Turn off shuffle" : "Shuffle tracks");
+      button.title = shuffleEnabled ? "Shuffle: on" : "Shuffle: off";
+    });
+  }
+
+  function makeShuffleOrder(startIndex = currentTrackIndex) {
+    shuffleOrder = tracks.map((_, index) => index);
+    for (let index = shuffleOrder.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [shuffleOrder[index], shuffleOrder[randomIndex]] = [shuffleOrder[randomIndex], shuffleOrder[index]];
+    }
+    shufflePosition = shuffleOrder.indexOf(startIndex);
+    if (shufflePosition > 0) {
+      [shuffleOrder[0], shuffleOrder[shufflePosition]] = [shuffleOrder[shufflePosition], shuffleOrder[0]];
+      shufflePosition = 0;
+    }
+  }
+
+  function getAdjacentTrack(direction) {
+    if (currentTrackIndex < 0 || !tracks.length) return -1;
+    if (!shuffleEnabled) return (currentTrackIndex + direction + tracks.length) % tracks.length;
+    if (shuffleOrder.length !== tracks.length) makeShuffleOrder();
+    shufflePosition = shuffleOrder.indexOf(currentTrackIndex);
+    if (shufflePosition < 0) {
+      makeShuffleOrder();
+      shufflePosition = 0;
+    }
+    shufflePosition = (shufflePosition + direction + shuffleOrder.length) % shuffleOrder.length;
+    return shuffleOrder[shufflePosition];
+  }
+
+  function updateVolumeControls() {
+    const isMuted = audio.muted || audio.volume === 0;
+    const volume = isMuted ? 0 : audio.volume;
+    volumeRange.value = volume;
+    expandedVolumeRange.value = volume;
+    volumeRange.style.setProperty("--volume-level", `${volume * 100}%`);
+    expandedVolumeRange.style.setProperty("--volume-level", `${volume * 100}%`);
+    volumeToggles.forEach((button) => {
+      button.classList.toggle("is-muted", isMuted);
+      button.setAttribute("aria-label", isMuted ? "Unmute audio" : "Mute audio");
+      button.setAttribute("aria-pressed", String(isMuted));
+    });
+  }
+
+  function setVolume(value) {
+    const volume = Math.min(1, Math.max(0, Number(value)));
+    audio.volume = volume;
+    audio.muted = false;
+    if (volume > 0) lastVolume = volume;
+    updateVolumeControls();
+  }
 
   function formatTime(seconds) {
     if (!Number.isFinite(seconds)) return "0:00";
@@ -31,6 +113,7 @@ if (audio) {
 
   function bindPageCards() {
     cards = [...document.querySelectorAll(".beat-card")];
+    const previousTrackCount = tracks.length;
     cards.forEach((card) => {
       const track = {
         title: card.dataset.title,
@@ -47,6 +130,7 @@ if (audio) {
       const index = tracks.findIndex((track) => track.title === currentTrack.title);
       if (index >= 0) currentTrackIndex = index;
     }
+    if (shuffleEnabled && tracks.length !== previousTrackCount) makeShuffleOrder();
     updatePlayButtons();
   }
 
@@ -70,6 +154,11 @@ if (audio) {
     audio.pause();
     currentTrackIndex = index;
     currentTrack = track;
+    if (shuffleEnabled) {
+      const position = shuffleOrder.indexOf(index);
+      if (position < 0) makeShuffleOrder(index);
+      else shufflePosition = position;
+    }
     audio.src = track.src;
     playerTitle.textContent = track.title;
     expandedTitle.textContent = track.title;
@@ -165,6 +254,14 @@ if (audio) {
     if (currentTrack && !audio.ended) playerStatus.textContent = `Paused ${currentTrack.title}.`;
   });
   audio.addEventListener("ended", () => {
+    if (shuffleEnabled && tracks.length > 1) {
+      playTrack(getAdjacentTrack(1));
+      return;
+    }
+    if (repeatTrack) {
+      playTrack(currentTrackIndex);
+      return;
+    }
     playerStatus.textContent = `${currentTrack.title} finished.`;
     updatePlayButtons();
   });
@@ -176,21 +273,52 @@ if (audio) {
 
   playerPlay.addEventListener("click", togglePlayback);
   expandedPlayerPlay.addEventListener("click", togglePlayback);
+  volumeRange.addEventListener("input", () => setVolume(volumeRange.value));
+  expandedVolumeRange.addEventListener("input", () => setVolume(expandedVolumeRange.value));
+  volumeToggles.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (audio.muted || audio.volume === 0) {
+        audio.muted = false;
+        if (audio.volume === 0) audio.volume = lastVolume;
+      } else {
+        lastVolume = audio.volume;
+        audio.muted = true;
+      }
+      updateVolumeControls();
+    });
+  });
+  audio.addEventListener("volumechange", updateVolumeControls);
+  updateVolumeControls();
+  repeatButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      repeatTrack = !repeatTrack;
+      audio.loop = repeatTrack;
+      updatePlaybackModes();
+    });
+  });
+  shuffleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      shuffleEnabled = !shuffleEnabled;
+      if (shuffleEnabled) makeShuffleOrder();
+      updatePlaybackModes();
+    });
+  });
+  updatePlaybackModes();
   openFullPlayer.addEventListener("click", () => {
     if (!fullPlayer.open) fullPlayer.showModal();
   });
   document.querySelector("#close-full-player").addEventListener("click", () => fullPlayer.close());
   document.querySelector("#previous-track").addEventListener("click", () => {
-    if (currentTrackIndex >= 0) playTrack((currentTrackIndex - 1 + tracks.length) % tracks.length);
+    if (currentTrackIndex >= 0) playTrack(getAdjacentTrack(-1));
   });
   document.querySelector("#expanded-previous-track").addEventListener("click", () => {
-    if (currentTrackIndex >= 0) playTrack((currentTrackIndex - 1 + tracks.length) % tracks.length);
+    if (currentTrackIndex >= 0) playTrack(getAdjacentTrack(-1));
   });
   document.querySelector("#next-track").addEventListener("click", () => {
-    if (currentTrackIndex >= 0) playTrack((currentTrackIndex + 1) % tracks.length);
+    if (currentTrackIndex >= 0) playTrack(getAdjacentTrack(1));
   });
   document.querySelector("#expanded-next-track").addEventListener("click", () => {
-    if (currentTrackIndex >= 0) playTrack((currentTrackIndex + 1) % tracks.length);
+    if (currentTrackIndex >= 0) playTrack(getAdjacentTrack(1));
   });
 
   function seekTo(input) {
