@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stevbeatz.com.gh/sitemap.xml
+Sitemap: https://stevbeat.github.io/beats-market/sitemap.xml
