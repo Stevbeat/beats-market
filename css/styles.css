@@ -335,6 +335,34 @@ h2 { margin-bottom: 0; font-size: clamp(38px, 5vw, 54px); font-weight: 600; line
 .beat-store-links { display: flex; gap: 7px; padding-top: 8px; border-top: 1px solid var(--line); }
 .beat-store-links a { flex: 1; padding: 7px 4px; border: 1px solid var(--line); border-radius: 4px; color: #ddd5d5; font-size: 8px; text-align: center; transition: background .2s,border-color .2s,color .2s; }
 .beat-store-links a:hover, .beat-store-links a:focus-visible { border-color: rgba(255,98,104,.45); background: rgba(243,76,83,.08); color: var(--text); }
+.price-region-picker { display: grid; grid-template-columns: minmax(180px,auto) 1fr; align-items: end; gap: 8px 18px; margin: 0 0 24px; padding: 16px; border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,.018); }
+.price-region-picker label { display: grid; gap: 7px; color: #ddd5d5; font-size: 10px; }
+.price-country { width: 100%; min-height: 39px; padding: 0 11px; border: 1px solid var(--line); border-radius: 4px; background: #19191c; color: var(--text); font: inherit; }
+.price-region-status,.price-region-summary,.price-region-note { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.7; }
+.price-region-status { color: #e4dcdc; }
+.price-region-summary { grid-column: 1 / -1; color: var(--text); }
+.price-region-summary span { white-space: nowrap; }
+.price-region-note { grid-column: 1 / -1; font-size: 9px; }
+.beat-purchase { margin-top: 10px; border: 1px solid var(--line); border-radius: 5px; background: rgba(255,255,255,.018); }
+.beat-purchase summary { display: flex; min-height: 42px; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 11px; color: #eee7e7; font-size: 10px; cursor: pointer; list-style: none; }
+.beat-purchase summary::-webkit-details-marker { display: none; }
+.beat-purchase summary::after { content: "+"; color: var(--accent-bright); font-size: 17px; }
+.beat-purchase[open] summary::after { content: "-"; }
+.beat-purchase summary strong { color: var(--accent-bright); font-weight: 600; }
+.beat-purchase-content { display: grid; gap: 12px; padding: 0 11px 12px; }
+.beat-specs { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin: 0; }
+.beat-specs > div { display: grid; gap: 3px; padding: 8px; border-radius: 4px; background: rgba(255,255,255,.025); }
+.beat-specs dt { color: var(--muted); font-size: 8px; text-transform: uppercase; letter-spacing: .6px; }
+.beat-specs dd { margin: 0; color: #eae3e3; font-size: 9px; overflow-wrap: anywhere; }
+.license-choice { display: grid; gap: 6px; color: #ddd5d5; font-size: 9px; }
+.license-choice select { width: 100%; min-height: 38px; padding: 7px; border: 1px solid var(--line); border-radius: 4px; background: #19191c; color: var(--text); font: inherit; }
+.license-price-detail { margin: 0; color: var(--accent-bright); font-size: 10px; font-weight: 600; }
+.license-terms-note,.purchase-note { margin: 0; color: var(--muted); font-size: 9px; line-height: 1.7; }
+.purchase-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; }
+.buy-button { display: flex; min-height: 36px; align-items: center; justify-content: center; padding: 7px; border: 1px solid var(--line); border-radius: 4px; color: #eee7e7; font-size: 9px; text-align: center; transition: background .2s,border-color .2s,color .2s; }
+.buy-button:hover,.buy-button:focus-visible { border-color: rgba(255,98,104,.45); background: rgba(243,76,83,.08); color: white; }
+.buy-button-primary { grid-column: 1 / -1; border-color: rgba(255,98,104,.35); background: rgba(243,76,83,.08); color: var(--accent-bright); }
+.purchase-note { font-size: 8px; }
 .license-note { display: grid; grid-template-columns: 95px 1fr auto; align-items: center; gap: 26px; min-height: 211px; margin-block: 64px 75px; padding: 25px 38px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(105deg,rgba(243,76,83,.07),rgba(255,255,255,.015)); }
 .license-note-mark { position: relative; display: grid; width: 79px; height: 79px; place-items: center; border: 1px solid rgba(255,98,104,.3); border-radius: 50%; color: var(--accent-bright); }
 .license-note-mark span { font-size: 18px; font-weight: 700; letter-spacing: -1px; }

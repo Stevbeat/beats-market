@@ -74,10 +74,11 @@
       }
     </script>
   <link rel="icon" href="images/stevbeatz-cover.jpg" type="image/jpeg">
-  <link rel="stylesheet" href="css/styles.css?v=7">
+  <link rel="stylesheet" href="css/styles.css?v=8">
   <script src="js/app.js?v=2" defer></script>
   <script src="js/player.js?v=5" defer></script>
   <script src="js/beats.js?v=2" defer></script>
+  <script src="js/pricing.js?v=1" defer></script>
   <script src="js/contact.js?v=2" defer></script>
   <script src="js/navigation.js?v=2" defer></script>
   <script src="js/whatsapp-chat.js?v=2" defer></script>
@@ -132,7 +133,24 @@
           </div>
           <p class="section-intro">Tap play to preview. Tap the heart to keep your favorites close.</p>
         </div>
-        <div class="beat-toolbar">
+        <div class="price-region-picker">
+  <label>Show prices for
+    <select class="price-country" aria-label="Choose country to display beat license prices">
+      <option value="GHS">Ghana (GHS)</option>
+      <option value="USD" selected>United States (USD)</option>
+      <option value="GBP">United Kingdom (GBP)</option>
+      <option value="NGN">Nigeria (NGN)</option>
+      <option value="CAD">Canada (CAD)</option>
+      <option value="ZAR">South Africa (ZAR)</option>
+      <option value="EUR">Euro area (EUR)</option>
+      <option value="USD">Other locations (USD)</option>
+    </select>
+  </label>
+  <p class="price-region-status" role="status" aria-live="polite">Prices shown in USD. Choose your country to convert them.</p>
+  <p class="price-region-summary">Basic MP3: <span data-license-price="basic">$30 USD</span> | Premium WAV + MP3: <span data-license-price="premium">$80 USD</span> | Exclusive: <span data-license-price="exclusive">$150 to $300 USD</span></p>
+  <p class="price-region-note">Converted amounts are estimates. Your selected checkout provider displays the final charge and terms.</p>
+</div>
+<div class="beat-toolbar">
           <div class="filter-tabs" role="group" aria-label="Filter beats"><button class="filter-button is-active"
               type="button" data-filter="all" aria-pressed="true">All beats <span>13</span></button><button
               class="filter-button" type="button" data-filter="favorites" aria-pressed="false">Your favorites <span
@@ -144,7 +162,7 @@
               placeholder="Find a beat..." autocomplete="off"><kbd>/</kbd></label>
         </div>
         <div class="beat-grid store-grid" id="beat-grid" aria-live="polite">
-          <article class="beat-card store-card" data-title="Run to me" data-src="audio/Run%20to%20me.mp3">
+          <article class="beat-card store-card" data-title="Run to me" data-src="audio/Run%20to%20me.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-coral art-photo art-paloma"><img src="images/sunset-cover.jpg"
                 alt="Friends enjoying an evening at the beach" width="800" height="1200"><span
                 class="track-number">01</span><button class="card-play" type="button" aria-label="Play Run to me"><span
@@ -157,16 +175,38 @@
             <div class="beat-info">
               <div>
                 <h3>Run to me - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=Run%20to%20me">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
-          <article class="beat-card store-card" data-title="Pay The Price" data-src="audio/Pay-The-Price_PTP_.mp3">
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
+          <article class="beat-card store-card" data-title="Pay The Price" data-src="audio/Pay-The-Price_PTP_.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-violet art-photo art-she"><img src="images/she-cover.jpg"
                 alt="Portrait of a woman in warm afternoon sunlight" width="800" height="1200"><span
                 class="track-number">02</span><button class="card-play" type="button"
@@ -179,16 +219,38 @@
             <div class="beat-info">
               <div>
                 <h3>Pay The Price - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=Pay%20The%20Price">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
-          <article class="beat-card store-card" data-title="Move it" data-src="audio/Move%20it.mp3">
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
+          <article class="beat-card store-card" data-title="Move it" data-src="audio/Move%20it.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-blue art-photo art-move"><img src="images/city-cover.jpg"
                 alt="City lights after dark" width="1200" height="1200"><span class="track-number">03</span><button
                 class="card-play" type="button" aria-label="Play Move it"><span class="play-icon"
@@ -199,16 +261,38 @@
             <div class="beat-info">
               <div>
                 <h3>Move it - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=Move%20it">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
-          <article class="beat-card store-card" data-title="Juicy" data-src="audio/Juicy.mp3">
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
+          <article class="beat-card store-card" data-title="Juicy" data-src="audio/Juicy.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-gold"><img src="images/stevbeatz-cover.jpg" alt="" width="700" height="700"><span
                 class="track-number">04</span><button class="card-play" type="button" aria-label="Play Juicy"><span
                   class="play-icon" aria-hidden="true"></span></button><button class="favorite-button" type="button"
@@ -219,16 +303,38 @@
             <div class="beat-info">
               <div>
                 <h3>Juicy - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=Juicy">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
-          <article class="beat-card store-card" data-title="Agony tagged" data-src="audio/Agony%20tagged.wav">
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
+          <article class="beat-card store-card" data-title="Agony tagged" data-src="audio/Agony%20tagged.wav" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-photo"><img src="images/agony-cover.jpg"
                 alt="Black and white portrait of a musician with a traditional instrument" loading="lazy" width="901"
                 height="1200"><span class="track-number">05</span><button class="card-play" type="button"
@@ -241,16 +347,38 @@
             <div class="beat-info">
               <div>
                 <h3>Agony tagged - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=Agony%20tagged">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
-          <article class="beat-card store-card" data-title="Blue" data-src="audio/Blue.mp3">
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
+          <article class="beat-card store-card" data-title="Blue" data-src="audio/Blue.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-photo"><img src="images/boat-cover.jpg" alt="A boat resting on a quiet lake"
                 width="800" height="1200"><span class="track-number">06</span><button class="card-play" type="button"
                 aria-label="Play Blue"><span class="play-icon" aria-hidden="true"></span></button><button
@@ -262,16 +390,38 @@
             <div class="beat-info">
               <div>
                 <h3>Blue - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=Blue">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
-          <article class="beat-card store-card" data-title="Doomed" data-src="audio/Doomed.mp3">
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
+          <article class="beat-card store-card" data-title="Doomed" data-src="audio/Doomed.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-photo"><img src="images/doomed-cover.jpg"
                 alt="Silhouette against dramatic red light" loading="lazy" width="960" height="1200"><span
                 class="track-number">07</span><button class="card-play" type="button" aria-label="Play Doomed"><span
@@ -283,16 +433,38 @@
             <div class="beat-info">
               <div>
                 <h3>Doomed - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=Doomed">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
-          <article class="beat-card store-card" data-title="Honey" data-src="audio/Honey.mp3">
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
+          <article class="beat-card store-card" data-title="Honey" data-src="audio/Honey.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-photo"><img src="images/dog-cover.jpg" alt="A dog playing in a flowing stream"
                 width="868" height="1200"><span class="track-number">08</span><button class="card-play" type="button"
                 aria-label="Play Honey"><span class="play-icon" aria-hidden="true"></span></button><button
@@ -304,16 +476,38 @@
             <div class="beat-info">
               <div>
                 <h3>Honey - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=Honey">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
-          <article class="beat-card store-card" data-title="jeje" data-src="audio/jeje.mp3">
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
+          <article class="beat-card store-card" data-title="jeje" data-src="audio/jeje.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-photo"><img src="images/jeje-cover.jpg"
                 alt="Artist in a vibrant red and gold outfit" loading="lazy" width="1200" height="800"><span
                 class="track-number">09</span><button class="card-play" type="button" aria-label="Play jeje"><span
@@ -325,16 +519,38 @@
             <div class="beat-info">
               <div>
                 <h3>jeje - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=jeje">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
-          <article class="beat-card store-card" data-title="Sad Guitar" data-src="audio/Sad%20Guitar.mp3">
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
+          <article class="beat-card store-card" data-title="Sad Guitar" data-src="audio/Sad%20Guitar.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-photo"><img src="images/sad-guitar-cover.jpg"
                 alt="Lone tree in a quiet desert landscape" loading="lazy" width="1200" height="800"><span
                 class="track-number">10</span><button class="card-play" type="button" aria-label="Play Sad Guitar"><span
@@ -347,17 +563,39 @@
             <div class="beat-info">
               <div>
                 <h3>Sad Guitar - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=Sad%20Guitar">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
           <article class="beat-card store-card" data-title="This far by grace"
-            data-src="audio/This%20far%20by%20grace.mp3">
+            data-src="audio/This%20far%20by%20grace.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-photo"><img src="images/she-cover.jpg"
                 alt="Portrait of a woman in warm afternoon sunlight" loading="lazy" width="800" height="1200"><span
                 class="track-number">11</span><button class="card-play" type="button"
@@ -370,16 +608,38 @@
             <div class="beat-info">
               <div>
                 <h3>This far by grace - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=This%20far%20by%20grace">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
-          <article class="beat-card store-card" data-title="Vacs new" data-src="audio/Vacs%20new.mp3">
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
+          <article class="beat-card store-card" data-title="Vacs new" data-src="audio/Vacs%20new.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-photo"><img src="images/this-far-cover.jpg"
                 alt="Artist portrait in soft natural light" width="900" height="1200"><span
                 class="track-number">12</span><button class="card-play" type="button" aria-label="Play Vacs new"><span
@@ -391,16 +651,38 @@
             <div class="beat-info">
               <div>
                 <h3>Vacs new - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=Vacs%20new">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
-          <article class="beat-card store-card" data-title="Vouch" data-src="audio/Vouch.mp3">
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
+          <article class="beat-card store-card" data-title="Vouch" data-src="audio/Vouch.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
             <div class="beat-art art-photo"><img src="images/stevbeatz-cover.jpg" alt="" width="700" height="700"><span
                 class="track-number">13</span><button class="card-play" type="button" aria-label="Play Vouch"><span
                   class="play-icon" aria-hidden="true"></span></button><button class="favorite-button" type="button"
@@ -411,15 +693,37 @@
             <div class="beat-info">
               <div>
                 <h3>Vouch - Original Beat Preview</h3>
-                <p>StevBeatz instrumental ? listen here without an account ? ask about licensing</p>
+                <p>StevBeatz instrumental - preview online - ask about licensing</p>
               </div><span class="track-length">--:--</span>
-            </div><a class="license-link" href="contact-us.html?beat=Vouch">Ask about this beat <span
-                aria-hidden="true">↗</span></a>
-            <div class="beat-store-links" aria-label="Beat stores"><a href="https://stevbeatz.gumroad.com/"
-                target="_blank" rel="noopener noreferrer" aria-label="Browse Gumroad storefront">Gumroad</a><a
-                href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer"
-                aria-label="Browse Selar storefront">Selar</a></div>
-          </article>
+            </div>
+
+          <details class="beat-purchase">
+  <summary><span>License &amp; purchase</span><span>From <strong data-license-price="basic">$30 USD</strong></span></summary>
+  <div class="beat-purchase-content">
+    <dl class="beat-specs" aria-label="Beat details">
+      <div><dt>Genre</dt><dd data-beat-metadata="genre">Details on request</dd></div>
+      <div><dt>BPM</dt><dd data-beat-metadata="bpm">Details on request</dd></div>
+      <div><dt>Key</dt><dd data-beat-metadata="key">Details on request</dd></div>
+      <div><dt>Mood</dt><dd data-beat-metadata="mood">Details on request</dd></div>
+    </dl>
+    <label class="license-choice">Choose a license
+      <select data-license-choice aria-label="Choose a license for this beat">
+        <option value="basic" data-base-price="30">Basic - MP3 - $30 USD</option>
+        <option value="premium" data-base-price="80">Premium - WAV + MP3 - $80 USD</option>
+        <option value="exclusive" data-base-min="150" data-base-max="300">Exclusive - $150 to $300 USD</option>
+      </select>
+    </label>
+    <p class="license-price-detail" data-license-summary>Basic license - MP3 - $30 USD</p>
+    <p class="license-terms-note">Usage rights and limits are confirmed before purchase. Review the checkout listing or ask StevBeatz before paying.</p>
+    <div class="purchase-actions">
+      <a class="buy-button buy-button-primary" data-purchase="whatsapp" href="https://wa.me/233501483350" target="_blank" rel="noopener noreferrer">Ask / buy on WhatsApp</a>
+      <a class="buy-button" data-purchase="gumroad" href="https://stevbeatz.gumroad.com/" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+      <a class="buy-button" data-purchase="selar" href="https://selar.co/m/Stevbeatz" target="_blank" rel="noopener noreferrer">Buy on Selar</a>
+    </div>
+    <p class="purchase-note">Store links open the storefront; confirm the matching beat, price, and license terms at checkout. Exclusive prices are agreed by WhatsApp.</p>
+  </div>
+</details>
+</article>
         </div>
         <p class="empty-state" id="empty-state" hidden>No beats found. Try another search or add a favorite.</p>
       </div>
