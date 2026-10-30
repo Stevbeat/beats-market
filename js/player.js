@@ -215,6 +215,14 @@ if (audio) {
   bindPageCards();
   document.addEventListener("site:pagechange", bindPageCards);
   document.addEventListener("click", (event) => {
+    const featuredPlayButton = event.target.closest("[data-featured-beat]");
+    if (featuredPlayButton) {
+      const index = tracks.findIndex((track) => track.title === featuredPlayButton.dataset.featuredBeat);
+      if (index >= 0) playTrack(index);
+      else console.error(`Featured beat "${featuredPlayButton.dataset.featuredBeat}" is not available in the beat catalogue.`);
+      return;
+    }
+
     const playButton = event.target.closest(".beat-card .card-play");
     if (!playButton) return;
     const card = playButton.closest(".beat-card");

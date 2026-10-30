@@ -127,9 +127,9 @@
     </script>
     <link rel="icon" href="images/stevbeatz-cover.jpg" type="image/jpeg">
     <link rel="preload" href="images/stevbeatz-cover.jpg" as="image">
-    <link rel="stylesheet" href="css/styles.css?v=8">
+    <link rel="stylesheet" href="css/styles.css?v=9">
     <script src="js/app.js?v=2" defer></script>
-    <script src="js/player.js?v=5" defer></script>
+    <script src="js/player.js?v=6" defer></script>
     <script src="js/beats.js?v=2" defer></script>
     <script src="js/pricing.js?v=1" defer></script>
     <script src="js/contact.js?v=2" defer></script>
@@ -181,14 +181,72 @@
           <span class="art-orbit orbit-two"></span>
           <span class="art-sticker">PLAY<br>YOUR<br>PART</span>
         </div>
-      </section><section class="beats-section section-pad" id="beats">
+      </section>
+
+      <section class="featured-section section-pad" aria-labelledby="featured-heading">
         <div class="page-width">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">The beat selection</p>
-              <h2>Hear what <span>hits.</span></h2>
+              <p class="eyebrow">Start with a first listen</p>
+              <h2 id="featured-heading">Featured <span>beats.</span></h2>
             </div>
-            <p class="section-intro">Take a listen. Your next idea might be one play away.</p>
+            <a class="text-link featured-view-all" href="beats.html">View all beats <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="featured-grid">
+            <article class="featured-beat-card">
+              <div class="featured-beat-art">
+                <img src="images/sunset-cover.jpg" alt="Evening beach scene artwork for Run to me" width="800" height="1200">
+                <button class="featured-beat-play" type="button" data-featured-beat="Run to me" aria-label="Play Run to me">
+                  <span class="play-icon" aria-hidden="true"></span><span>Listen</span>
+                </button>
+              </div>
+              <div class="featured-beat-info">
+                <div><p class="eyebrow">Featured 01</p><h3>Run to me</h3></div>
+                <span>From <strong data-license-price="basic">$30 USD</strong></span>
+              </div>
+              <p class="featured-beat-details">Genre, BPM, key &amp; mood available on request.</p>
+              <a class="featured-beat-link" href="beats.html#beat-run-to-me">Choose a license <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="featured-beat-card">
+              <div class="featured-beat-art">
+                <img src="images/she-cover.jpg" alt="Portrait artwork for Pay The Price" width="800" height="1200">
+                <button class="featured-beat-play" type="button" data-featured-beat="Pay The Price" aria-label="Play Pay The Price">
+                  <span class="play-icon" aria-hidden="true"></span><span>Listen</span>
+                </button>
+              </div>
+              <div class="featured-beat-info">
+                <div><p class="eyebrow">Featured 02</p><h3>Pay The Price</h3></div>
+                <span>From <strong data-license-price="basic">$30 USD</strong></span>
+              </div>
+              <p class="featured-beat-details">Genre, BPM, key &amp; mood available on request.</p>
+              <a class="featured-beat-link" href="beats.html#beat-pay-the-price">Choose a license <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="featured-beat-card">
+              <div class="featured-beat-art">
+                <img src="images/city-cover.jpg" alt="City artwork for Move it" width="800" height="1200">
+                <button class="featured-beat-play" type="button" data-featured-beat="Move it" aria-label="Play Move it">
+                  <span class="play-icon" aria-hidden="true"></span><span>Listen</span>
+                </button>
+              </div>
+              <div class="featured-beat-info">
+                <div><p class="eyebrow">Featured 03</p><h3>Move it</h3></div>
+                <span>From <strong data-license-price="basic">$30 USD</strong></span>
+              </div>
+              <p class="featured-beat-details">Genre, BPM, key &amp; mood available on request.</p>
+              <a class="featured-beat-link" href="beats.html#beat-move-it">Choose a license <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="beats-section section-pad" id="beats">
+        <div class="page-width">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Explore all 13 previews</p>
+              <h2>Full beat <span>catalogue.</span></h2>
+            </div>
+            <a class="text-link" href="beats.html">View all beats <span aria-hidden="true">↗</span></a>
           </div>
           <div class="price-region-picker">
   <label>Show prices for
@@ -221,7 +279,7 @@
           </div>
 
           <div class="beat-grid" id="beat-grid" aria-live="polite">
-            <article class="beat-card" data-title="Run to me" data-src="audio/Run%20to%20me.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
+            <article class="beat-card" id="beat-run-to-me" data-title="Run to me" data-src="audio/Run%20to%20me.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
               <div class="beat-art art-coral art-photo art-paloma">
                 <img src="images/sunset-cover.jpg" alt="Friends enjoying an evening at the beach" loading="lazy" width="800" height="1200">
                 <span class="track-number">01</span>
@@ -257,7 +315,7 @@
   </div>
 </details>
 </article>
-            <article class="beat-card" data-title="Pay The Price" data-src="audio/Pay-The-Price_PTP_.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
+            <article class="beat-card" id="beat-pay-the-price" data-title="Pay The Price" data-src="audio/Pay-The-Price_PTP_.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
               <div class="beat-art art-violet art-photo art-she">
                 <img src="images/she-cover.jpg" alt="Portrait of a woman in warm afternoon sunlight" loading="lazy" width="800" height="1200">
                 <span class="track-number">02</span>
@@ -293,7 +351,7 @@
   </div>
 </details>
 </article>
-            <article class="beat-card" data-title="Move it" data-src="audio/Move%20it.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
+            <article class="beat-card" id="beat-move-it" data-title="Move it" data-src="audio/Move%20it.mp3" data-genre="" data-bpm="" data-key="" data-mood="">
               <div class="beat-art art-blue art-photo art-move">
                 <img src="images/city-cover.jpg" alt="City lights after dark" loading="lazy" width="1200" height="1200">
                 <span class="track-number">03</span>
@@ -631,6 +689,19 @@
         </div>
       </section>
 
+      <section class="about-section section-pad" id="about">
+        <div class="page-width about-layout">
+          <div class="about-mark"><img src="images/steve-portrait.jpg" alt="StevBeatz playing guitar" loading="lazy" width="1000" height="932"></div>
+          <div class="about-copy">
+            <p class="eyebrow">The producer behind the sound</p>
+            <h2>Music made with <span>intention.</span></h2>
+            <p>I’m StevBeatz, a Ghana-based music producer, instrumentalist, and recording engineer. From original beats and custom production to mixing, mastering, recording, and instrument tracking, each project starts with your direction and a conversation about the sound you want to make.</p>
+            <a class="text-link" href="about.html">Meet the producer, explore releases &amp; collaborations <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="about-side-note"><span>01</span><p>Made for<br>your story.</p><span class="side-line"></span><p>Built to<br>move you.</p></div>
+        </div>
+      </section>
+
       <section class="services-section section-pad" id="services">
         <div class="page-width">
           <div class="section-heading">
@@ -752,22 +823,6 @@
           </div>
         </div>
       </section>
-
-
-
-      <section class="about-section section-pad" id="about">
-        <div class="page-width about-layout">
-          <div class="about-mark"><img src="images/stevbeatz-cover.jpg" alt="StevBeatz headphone and waveform logo" loading="lazy" width="700" height="700"></div>
-          <div class="about-copy">
-            <p class="eyebrow">A little about the sound</p>
-            <h2>Made for the<br><span>moment it clicks.</span></h2>
-            <p>Every track starts with a feeling and leaves room for your story. Explore the previews, find the one that connects, and take your next idea somewhere new.</p>
-            <a class="text-link" href="about.html">Get to know the story <span aria-hidden="true">→</span></a>
-          </div>
-          <div class="about-side-note"><span>01</span><p>Listen<br>without limits.</p><span class="side-line"></span><p>Imagine<br>what's next.</p></div>
-        </div>
-      </section>
-
       <section class="contact-section page-width" id="contact">
         <div class="contact-card">
           <div class="contact-copy">
